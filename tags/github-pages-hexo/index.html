@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 9 words)
+                    a minute read (About 209 words)
                 </span>
                 
                 
@@ -165,6 +165,27 @@
         </h1>
         <div class="content">
             <h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建博客"><a href="#新建博客" class="headerlink" title="新建博客"></a>新建博客</h2><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init <span class="hljs-string">"hexo-demo"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="新建post"><a href="#新建post" class="headerlink" title="新建post"></a>新建post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new post <span class="hljs-string">"hexo-new-post"</span></span><br></pre></td></tr></table></figure>
+
+<p>在hexo-demo/source/_posts下将会生成名为hexo-new-post.md的文件，可用markdown工具进行编辑。</p>
+<h2 id="绑定Github"><a href="#绑定Github" class="headerlink" title="绑定Github"></a>绑定Github</h2><h3 id="github新建pages项目"><a href="#github新建pages项目" class="headerlink" title="github新建pages项目"></a>github新建pages项目</h3><p>在github中新建名为{username}.github.io的项目，其中，二级域名必须与github用户名相同，否则将导致访问404。</p>
+<p>github中上传localhost的ssh公钥。</p>
+<h3 id="编辑hexo-config-yml文件"><a href="#编辑hexo-config-yml文件" class="headerlink" title="编辑hexo _config.yml文件"></a>编辑hexo _config.yml文件</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ./_config.yml</span><br></pre></td></tr></table></figure>
+
+<p>其中deploy部分修改为：</p>
+<figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">deploy:</span></span><br><span class="line"><span class="hljs-attr">  type:</span> <span class="hljs-string">git</span></span><br><span class="line"><span class="hljs-attr">  repository:</span> <span class="hljs-string">git@github.com:&#123;username&#125;/&#123;username&#125;.github.io.git</span></span><br><span class="line"><span class="hljs-attr">  branch:</span> <span class="hljs-string">master</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装必要插件"><a href="#安装必要插件" class="headerlink" title="安装必要插件"></a>安装必要插件</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+
+<h3 id="部署至Github"><a href="#部署至Github" class="headerlink" title="部署至Github"></a>部署至Github</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p>至此，一般在三分钟左右，访问{username}.github.io，即可看到新生成的文章。</p>
+
         </div>
         
         
@@ -215,10 +236,10 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Post
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        1
+                        2
                     </p>
                 </div>
             </div>
@@ -295,6 +316,25 @@
         
         <article class="media">
             
+            <a href="/2019/09/14/SpringCloud-入门/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringCloud 入门">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T02:45:01.000Z">2019-09-14</time></div>
+                    <a href="/2019/09/14/SpringCloud-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SpringCloud 入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/09/13/github-pages-hexo/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="github pages + hexo">
@@ -330,7 +370,7 @@
                     <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -380,6 +420,25 @@
         
         <article class="media">
             
+            <a href="/2019/09/14/SpringCloud-入门/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringCloud 入门">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T02:45:01.000Z">2019-09-14</time></div>
+                    <a href="/2019/09/14/SpringCloud-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SpringCloud 入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/09/13/github-pages-hexo/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="github pages + hexo">
@@ -415,7 +474,7 @@
                     <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
