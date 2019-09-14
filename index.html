@@ -201,8 +201,12 @@
 <h3 id="新建post"><a href="#新建post" class="headerlink" title="新建post"></a>新建post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new post <span class="hljs-string">"hexo-new-post"</span></span><br></pre></td></tr></table></figure>
 
 <p>在hexo-demo/source/_posts下将会生成名为hexo-new-post.md的文件，可用markdown工具进行编辑。</p>
-<h2 id="绑定Github"><a href="#绑定Github" class="headerlink" title="绑定Github"></a>绑定Github</h2><h3 id="github新建pages项目"><a href="#github新建pages项目" class="headerlink" title="github新建pages项目"></a>github新建pages项目</h3><p>在github中新建名为{username}.github.io的项目，其中，二级域名必须与github用户名相同，否则将导致访问404。</p>
-<p>github中上传localhost的ssh公钥。</p>
+<h2 id="绑定Github"><a href="#绑定Github" class="headerlink" title="绑定Github"></a>绑定Github</h2><h3 id="github新建pages项目"><a href="#github新建pages项目" class="headerlink" title="github新建pages项目"></a>github新建pages项目</h3><ul>
+<li><p>在github中新建名为{username}.github.io的项目，其中，二级域名必须与github用户名相同，否则将导致访问404。</p>
+</li>
+<li><p>github中上传localhost的ssh公钥。</p>
+</li>
+</ul>
 <h3 id="编辑hexo-config-yml文件"><a href="#编辑hexo-config-yml文件" class="headerlink" title="编辑hexo _config.yml文件"></a>编辑hexo _config.yml文件</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ./_config.yml</span><br></pre></td></tr></table></figure>
 
 <p>其中deploy部分修改为：</p>
