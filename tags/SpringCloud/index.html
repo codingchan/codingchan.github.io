@@ -203,7 +203,15 @@
 
 <ul>
 <li>Application添加@EnableEurekaServer标注</li>
-<li>eureka.renewalPercentThreshold=0.85导致<figure class="highlight plain hljs"><figcaption><span>EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT.```错误，解决方法：修改为0.5 或 开启多个eureka server</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 2.2.2 Feign + Hystrix</span><br><span class="line">* 依赖</span><br><span class="line">``` pom.xml</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li>eureka.renewalPercentThreshold=0.85导致错误：<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY&apos;RE NOT.</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>解决方法：修改为0.5 或 开启多个eureka server</p>
+<h3 id="2-2-2-Feign-Hystrix"><a href="#2-2-2-Feign-Hystrix" class="headerlink" title="2.2.2 Feign + Hystrix"></a>2.2.2 Feign + Hystrix</h3><ul>
+<li>依赖<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8765</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: service-feign</span><br><span class="line"></span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    serviceUrl:</span><br><span class="line">      defaultZone: http://localhost:8761/eureka/</span><br><span class="line"></span><br><span class="line">feign:</span><br><span class="line">  hystrix:</span><br><span class="line">    enabled: true</span><br></pre></td></tr></table></figure>
 
@@ -272,7 +280,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        5
                     </p>
                 </div>
             </div>
@@ -292,7 +300,7 @@
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        5
+                        4
                     </p>
                 </div>
             </div>
@@ -332,7 +340,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Java-BIO-NIO-AIO/" style="font-size: 10px;">Java BIO NIO AIO</a> <a href="/tags/SpringCloud/" style="font-size: 10px;">SpringCloud</a> <a href="/tags/github-pages-hexo/" style="font-size: 10px;">github pages hexo</a> <a href="/tags/palntuml-vscode/" style="font-size: 10px;">palntuml vscode</a> <a href="/tags/react/" style="font-size: 10px;">react</a>
+        <a href="/tags/Java-BIO-NIO-AIO/" style="font-size: 10px;">Java BIO NIO AIO</a> <a href="/tags/SpringCloud/" style="font-size: 10px;">SpringCloud</a> <a href="/tags/github-pages-hexo/" style="font-size: 10px;">github pages hexo</a> <a href="/tags/react/" style="font-size: 10px;">react</a>
     </div>
 </div>
 
@@ -346,25 +354,6 @@
         <h3 class="menu-label">
             Recent
         </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/09/18/PlantUML-入门/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="PlantUML 入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T05:34:29.000Z">2019-09-18</time></div>
-                    <a href="/2019/09/18/PlantUML-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">PlantUML 入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
         
         <article class="media">
             
@@ -442,6 +431,25 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/09/13/github-pages-hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="github pages + hexo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-13T02:45:08.000Z">2019-09-13</time></div>
+                    <a href="/2019/09/13/github-pages-hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">github pages + hexo</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
 
@@ -460,7 +468,7 @@
                     <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -495,13 +503,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/github-pages-hexo/">
                         <span class="tag">github pages hexo</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/palntuml-vscode/">
-                        <span class="tag">palntuml vscode</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -538,25 +539,6 @@
         
         <article class="media">
             
-            <a href="/2019/09/18/PlantUML-入门/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="PlantUML 入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T05:34:29.000Z">2019-09-18</time></div>
-                    <a href="/2019/09/18/PlantUML-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">PlantUML 入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/2019/09/17/SpringCloud-Alibaba-入门/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringCloud 入门">
@@ -631,6 +613,25 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/09/13/github-pages-hexo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="github pages + hexo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-13T02:45:08.000Z">2019-09-13</time></div>
+                    <a href="/2019/09/13/github-pages-hexo/" class="title has-link-black-ter is-size-6 has-text-weight-normal">github pages + hexo</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
 
@@ -649,7 +650,7 @@
                     <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -684,13 +685,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/github-pages-hexo/">
                         <span class="tag">github pages hexo</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/palntuml-vscode/">
-                        <span class="tag">palntuml vscode</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
