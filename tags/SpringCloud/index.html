@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: Java BIO NIO AIO - KeepCoding</title>
+<title>Tag: SpringCloud - KeepCoding</title>
 
 
 
@@ -133,7 +133,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Java BIO NIO AIO</a></li>
+            <li class="is-active"><a href="#" aria-current="page">SpringCloud</a></li>
         </ul>
         </nav>
     </div>
@@ -145,13 +145,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-16T02:00:28.000Z">2019-09-16</time>
+                <time class="level-item has-text-grey" datetime="2019-09-17T02:34:20.000Z">2019-09-17</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 41 words)
+                    2 minutes read (About 350 words)
                 </span>
                 
                 
@@ -160,39 +160,65 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/09/16/Java-NIO-Jetty-Netty-入门及对比/">Java BIO / NIO / AIO 对比</a>
+                <a class="has-link-black-ter" href="/2019/09/17/SpringCloud-Alibaba-入门/">SpringCloud 入门</a>
             
         </h1>
         <div class="content">
-            <h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><table>
+            <h1 id="1-SpringCloud-基础"><a href="#1-SpringCloud-基础" class="headerlink" title="1. SpringCloud 基础"></a>1. SpringCloud 基础</h1><h2 id="1-1-SpringCloud-Netflix-基础组件"><a href="#1-1-SpringCloud-Netflix-基础组件" class="headerlink" title="1.1 SpringCloud Netflix 基础组件"></a>1.1 SpringCloud Netflix 基础组件</h2><table>
 <thead>
 <tr>
 <th></th>
-<th>BIO</th>
-<th>NIO</th>
-<th>AIO</th>
+<th>Name</th>
+<th>Usage</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>全称</td>
-<td>Blocking I/O</td>
-<td>New I/O</td>
-<td>Asynchronous I/O</td>
+<td>1</td>
+<td>Netflix Eureka</td>
+<td>服务注册/发现</td>
 </tr>
 <tr>
-<td>模式</td>
-<td>同步阻塞</td>
-<td>同步非阻塞</td>
-<td>异步非阻塞</td>
+<td>2</td>
+<td>Netflix Feign + Hystrix</td>
+<td>客服端负载均衡 + 断路器</td>
 </tr>
 <tr>
-<td>支持版本</td>
-<td>all</td>
-<td>JDK 1.4+</td>
-<td>JDK 1.7+</td>
+<td>3</td>
+<td>Netflix Zuul</td>
+<td>Spring Cloud Config</td>
 </tr>
 </tbody></table>
-<h1 id="Java-BIO"><a href="#Java-BIO" class="headerlink" title="Java BIO"></a>Java BIO</h1>
+<h1 id="2-SpringCloud-demo"><a href="#2-SpringCloud-demo" class="headerlink" title="2 SpringCloud demo"></a>2 SpringCloud demo</h1><h2 id="2-1-组件构成"><a href="#2-1-组件构成" class="headerlink" title="2.1 组件构成"></a>2.1 组件构成</h2><p>Eureka + Feign + Hystric + Zuul + Config</p>
+<h2 id="2-2-搭建中的问题："><a href="#2-2-搭建中的问题：" class="headerlink" title="2.2 搭建中的问题："></a>2.2 搭建中的问题：</h2><ul>
+<li>公共依赖<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;java.version&gt;1.8&lt;/java.version&gt;</span><br><span class="line">    &lt;spring-cloud.version&gt;Greenwich.SR3&lt;/spring-cloud.version&gt;</span><br><span class="line">&lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;spring-cloud.version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">            &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-2-1-eureka-server"><a href="#2-2-1-eureka-server" class="headerlink" title="2.2.1 eureka server"></a>2.2.1 eureka server</h3><ul>
+<li>依赖<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8761 #服务端口</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: eurka-server #服务应用名称</span><br><span class="line"></span><br><span class="line">eureka:</span><br><span class="line">  instance:</span><br><span class="line">    hostname: localhost</span><br><span class="line">  client:</span><br><span class="line">    registerWithEureka: false #是否将自己注册到Eureka Server，默认为true</span><br><span class="line">    fetchRegistry: false #是否从Eureka Server获取注册信息，默认为true</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/ #服务注册的 URL</span><br><span class="line">  server:</span><br><span class="line">    renewal-percent-threshold: 0.5</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Application添加@EnableEurekaServer标注</li>
+<li>eureka.renewalPercentThreshold=0.85导致<figure class="highlight plain hljs"><figcaption><span>EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT.```错误，解决方法：修改为0.5 或 开启多个eureka server</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 2.2.2 Feign + Hystrix</span><br><span class="line">* 依赖</span><br><span class="line">``` pom.xml</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8765</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: service-feign</span><br><span class="line"></span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    serviceUrl:</span><br><span class="line">      defaultZone: http://localhost:8761/eureka/</span><br><span class="line"></span><br><span class="line">feign:</span><br><span class="line">  hystrix:</span><br><span class="line">    enabled: true</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Application添加@@EnableEurekaClient、@EnableFeignClients</li>
+<li>为对应的微服务接口建立interface，添加@FeignClient标注，添加fallback选项以配置Hystrix</li>
+</ul>
+<h3 id="2-2-3-Zuul"><a href="#2-2-3-Zuul" class="headerlink" title="2.2.3 Zuul"></a>2.2.3 Zuul</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-netflix-zuul&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8769</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: service-zuul</span><br><span class="line"></span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    serviceUrl:</span><br><span class="line">      defaultZone: http://localhost:8761/eureka/</span><br><span class="line"></span><br><span class="line">zuul:</span><br><span class="line">  routes:</span><br><span class="line">    api-feign:  # 分发</span><br><span class="line">      path: /api/**</span><br><span class="line">      service-id: service-feign</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Application添加@EnableEurekaClient、@EnableZuulProxy标注</li>
+</ul>
+<h3 id="2-2-4-Config"><a href="#2-2-4-Config" class="headerlink" title="2.2.4 Config"></a>2.2.4 Config</h3>
         </div>
         
         
