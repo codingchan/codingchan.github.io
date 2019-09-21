@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 196 words)
+                    a minute read (About 214 words)
                 </span>
                 
                 
@@ -153,7 +153,7 @@
             
         </h1>
         <div class="content">
-            <h1 id="http基础知识"><a href="#http基础知识" class="headerlink" title="http基础知识"></a>http基础知识</h1><h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><h2 id="status-code"><a href="#status-code" class="headerlink" title="status_code"></a>status_code</h2><h1 id="1-node-js无框架搭建http服务"><a href="#1-node-js无框架搭建http服务" class="headerlink" title="1. node.js无框架搭建http服务"></a>1. node.js无框架搭建http服务</h1><h2 id="1-1-helloworld-demo"><a href="#1-1-helloworld-demo" class="headerlink" title="1.1 helloworld demo"></a>1.1 helloworld demo</h2><p>server.js</p>
+            <h1 id="1-node-js无框架搭建http服务"><a href="#1-node-js无框架搭建http服务" class="headerlink" title="1. node.js无框架搭建http服务"></a>1. node.js无框架搭建http服务</h1><h2 id="1-1-helloworld-demo"><a href="#1-1-helloworld-demo" class="headerlink" title="1.1 helloworld demo"></a>1.1 helloworld demo</h2><p>server.js</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-built_in">console</span>.log(req.url);</span><br><span class="line">	res.writeHead(<span class="hljs-number">200</span>, &#123;<span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/html"</span>&#125;);</span><br><span class="line">	res.write(<span class="hljs-string">"&lt;html&gt;&lt;body&gt;&lt;p&gt;hello world&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"</span>)</span><br><span class="line">&#125;).listen(<span class="hljs-number">8080</span>);</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"server running..."</span>);</span><br></pre></td></tr></table></figure>
 
 <h2 id="1-2-GET-amp-amp-POST"><a href="#1-2-GET-amp-amp-POST" class="headerlink" title="1.2 GET &amp;&amp; POST"></a>1.2 GET &amp;&amp; POST</h2><p>server.js</p>
@@ -163,7 +163,10 @@
 <li>该语句放在req.on(“end”, …)之上则打印为空，chunk类型为byte，猜测在on(“end”)事件触发后nodejs还对data_str进行了类型转换，待验证。</li>
 <li>默认POST数据为form-data。</li>
 </ul>
-<h1 id="express-js"><a href="#express-js" class="headerlink" title="express.js"></a>express.js</h1><h1 id="egg-js"><a href="#egg-js" class="headerlink" title="egg.js"></a>egg.js</h1>
+<h1 id="2-express-js"><a href="#2-express-js" class="headerlink" title="2. express.js"></a>2. express.js</h1><h2 id="2-1-installation-amp-amp-helloworld-demo"><a href="#2-1-installation-amp-amp-helloworld-demo" class="headerlink" title="2.1 installation &amp;&amp; helloworld demo"></a>2.1 installation &amp;&amp; helloworld demo</h2><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g express express-generator</span><br><span class="line">$ express express-demo</span><br><span class="line">$ <span class="hljs-built_in">cd</span> express-demo</span><br><span class="line">$ npm install</span><br><span class="line">$ npm start</span><br></pre></td></tr></table></figure>
+
+<p>默认访问<a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a></p>
+<h2 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h2><h1 id="3-egg-js"><a href="#3-egg-js" class="headerlink" title="3. egg.js"></a>3. egg.js</h1>
         </div>
         
         
@@ -177,6 +180,13 @@
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/21/HTTP及TCP协议入门/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">HTTP及TCP协议入门</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -229,7 +239,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        7
                     </p>
                 </div>
             </div>
@@ -306,6 +316,25 @@
         
         <article class="media">
             
+            <a href="/2019/09/21/HTTP及TCP协议入门/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HTTP及TCP协议入门">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-21T11:56:06.000Z">2019-09-21</time></div>
+                    <a href="/2019/09/21/HTTP及TCP协议入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTTP及TCP协议入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/09/21/node-js-框架入门/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="node.js 框架入门">
@@ -380,25 +409,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/09/14/SpringCloud-入门/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringCloud 入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T02:45:01.000Z">2019-09-14</time></div>
-                    <a href="/2019/09/14/SpringCloud-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SpringCloud 入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -417,7 +427,7 @@
                     <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -488,6 +498,25 @@
         
         <article class="media">
             
+            <a href="/2019/09/21/HTTP及TCP协议入门/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HTTP及TCP协议入门">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-21T11:56:06.000Z">2019-09-21</time></div>
+                    <a href="/2019/09/21/HTTP及TCP协议入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTTP及TCP协议入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/09/21/node-js-框架入门/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="node.js 框架入门">
@@ -562,25 +591,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/09/14/SpringCloud-入门/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringCloud 入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-14T02:45:01.000Z">2019-09-14</time></div>
-                    <a href="/2019/09/14/SpringCloud-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SpringCloud 入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -599,7 +609,7 @@
                     <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>

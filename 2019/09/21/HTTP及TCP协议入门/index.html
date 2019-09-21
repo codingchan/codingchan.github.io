@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>SpringCloud 入门 - KeepCoding</title>
+<title>HTTP及TCP协议入门 - KeepCoding</title>
 
 
 
@@ -78,7 +78,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/avatar.png" alt="SpringCloud 入门" height="28">
+                <img src="/images/avatar.png" alt="HTTP及TCP协议入门" height="28">
             
             </a>
         </div>
@@ -134,13 +134,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-17T02:34:20.000Z">2019-09-17</time>
+                <time class="level-item has-text-grey" datetime="2019-09-21T11:56:06.000Z">2019-09-21</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 353 words)
+                    a few seconds read (About 0 words)
                 </span>
                 
                 
@@ -149,89 +149,11 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                SpringCloud 入门
+                HTTP及TCP协议入门
             
         </h1>
         <div class="content">
-            <h1 id="1-基础"><a href="#1-基础" class="headerlink" title="1. 基础"></a>1. 基础</h1><h2 id="1-1-SpringCloud-Netflix-基础组件"><a href="#1-1-SpringCloud-Netflix-基础组件" class="headerlink" title="1.1 SpringCloud Netflix 基础组件"></a>1.1 SpringCloud Netflix 基础组件</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>Name</th>
-<th>Usage</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>Netflix Eureka</td>
-<td>服务注册/发现</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Netflix Feign + Hystrix</td>
-<td>客服端负载均衡 + 断路器</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Netflix Zuul</td>
-<td>Spring Cloud Config</td>
-</tr>
-</tbody></table>
-<h1 id="2-SpringCloud-demo"><a href="#2-SpringCloud-demo" class="headerlink" title="2 SpringCloud demo"></a>2 SpringCloud demo</h1><h2 id="2-1-组件构成"><a href="#2-1-组件构成" class="headerlink" title="2.1 组件构成"></a>2.1 组件构成</h2><p>Eureka + Feign + Hystric + Zuul + Config</p>
-<h2 id="2-2-搭建"><a href="#2-2-搭建" class="headerlink" title="2.2 搭建"></a>2.2 搭建</h2><ul>
-<li>公共依赖</li>
-</ul>
-<p>pom.xml</p>
-<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">java.version</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">java.version</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">spring-cloud.version</span>&gt;</span>Greenwich.SR3<span class="hljs-tag">&lt;/<span class="hljs-name">spring-cloud.version</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;spring-cloud.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2-1-eureka-server"><a href="#2-2-1-eureka-server" class="headerlink" title="2.2.1 eureka server"></a>2.2.1 eureka server</h3><ul>
-<li>依赖</li>
-</ul>
-<p>pom.xml</p>
-<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>application.yml</p>
-<figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">server:</span></span><br><span class="line"><span class="hljs-attr">  port:</span> <span class="hljs-number">8761</span> <span class="hljs-comment">#服务端口</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">spring:</span></span><br><span class="line"><span class="hljs-attr">  application:</span></span><br><span class="line"><span class="hljs-attr">    name:</span> <span class="hljs-string">eurka-server</span> <span class="hljs-comment">#服务应用名称</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">eureka:</span></span><br><span class="line"><span class="hljs-attr">  instance:</span></span><br><span class="line"><span class="hljs-attr">    hostname:</span> <span class="hljs-string">localhost</span></span><br><span class="line"><span class="hljs-attr">  client:</span></span><br><span class="line"><span class="hljs-attr">    registerWithEureka:</span> <span class="hljs-literal">false</span> <span class="hljs-comment">#是否将自己注册到Eureka Server，默认为true</span></span><br><span class="line"><span class="hljs-attr">    fetchRegistry:</span> <span class="hljs-literal">false</span> <span class="hljs-comment">#是否从Eureka Server获取注册信息，默认为true</span></span><br><span class="line"><span class="hljs-attr">    service-url:</span></span><br><span class="line"><span class="hljs-attr">      defaultZone:</span> <span class="hljs-attr">http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/</span> <span class="hljs-comment">#服务注册的 URL</span></span><br><span class="line"><span class="hljs-attr">  server:</span></span><br><span class="line"><span class="hljs-attr">    renewal-percent-threshold:</span> <span class="hljs-number">0.5</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Application添加@EnableEurekaServer标注</li>
-<li>eureka.renewalPercentThreshold=0.85导致错误：EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY’RE NOT. 解决方法：修改为0.5 或 开启多个eureka server</li>
-</ul>
-<h3 id="2-2-2-Feign-Hystrix"><a href="#2-2-2-Feign-Hystrix" class="headerlink" title="2.2.2 Feign + Hystrix"></a>2.2.2 Feign + Hystrix</h3><ul>
-<li>依赖</li>
-</ul>
-<p>pom.xml</p>
-<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-hystrix<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>application.yml</p>
-<figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">server:</span></span><br><span class="line"><span class="hljs-attr">  port:</span> <span class="hljs-number">8765</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">spring:</span></span><br><span class="line"><span class="hljs-attr">  application:</span></span><br><span class="line"><span class="hljs-attr">    name:</span> <span class="hljs-string">service-feign</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">eureka:</span></span><br><span class="line"><span class="hljs-attr">  client:</span></span><br><span class="line"><span class="hljs-attr">    serviceUrl:</span></span><br><span class="line"><span class="hljs-attr">      defaultZone:</span> <span class="hljs-attr">http://localhost:8761/eureka/</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">feign:</span></span><br><span class="line"><span class="hljs-attr">  hystrix:</span></span><br><span class="line"><span class="hljs-attr">    enabled:</span> <span class="hljs-literal">true</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Application添加@@EnableEurekaClient、@EnableFeignClients</li>
-<li>为对应的微服务接口建立interface，添加@FeignClient标注，添加fallback选项以配置Hystrix</li>
-</ul>
-<h3 id="2-2-3-Zuul"><a href="#2-2-3-Zuul" class="headerlink" title="2.2.3 Zuul"></a>2.2.3 Zuul</h3><ul>
-<li>依赖</li>
-</ul>
-<p>pom.xml</p>
-<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-zuul<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>application.yml</p>
-<figure class="highlight yml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">server:</span></span><br><span class="line"><span class="hljs-attr">  port:</span> <span class="hljs-number">8769</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">spring:</span></span><br><span class="line"><span class="hljs-attr">  application:</span></span><br><span class="line"><span class="hljs-attr">    name:</span> <span class="hljs-string">service-zuul</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">eureka:</span></span><br><span class="line"><span class="hljs-attr">  client:</span></span><br><span class="line"><span class="hljs-attr">    serviceUrl:</span></span><br><span class="line"><span class="hljs-attr">      defaultZone:</span> <span class="hljs-attr">http://localhost:8761/eureka/</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">zuul:</span></span><br><span class="line"><span class="hljs-attr">  routes:</span></span><br><span class="line"><span class="hljs-attr">    api-feign:</span>  <span class="hljs-comment"># 分发</span></span><br><span class="line"><span class="hljs-attr">      path:</span> <span class="hljs-string">/api/**</span></span><br><span class="line"><span class="hljs-attr">      service-id:</span> <span class="hljs-string">service-feign</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Application添加@EnableEurekaClient、@EnableZuulProxy标注</li>
-</ul>
-<h3 id="2-2-4-Config"><a href="#2-2-4-Config" class="headerlink" title="2.2.4 Config"></a>2.2.4 Config</h3>
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/SpringCloud/">SpringCloud</a>
-                </div>
-            </div>
+            
         </div>
         
         
@@ -246,17 +168,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/21/node-js-框架入门/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">node.js 框架入门</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/16/Java-NIO-Jetty-Netty-入门及对比/">
-                <span class="level-item">Java BIO / NIO / AIO 对比</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/21/node-js-框架入门/">
+                <span class="level-item">node.js 框架入门</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -737,7 +652,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/avatar.png" alt="SpringCloud 入门" height="28">
+                    <img src="/images/avatar.png" alt="HTTP及TCP协议入门" height="28">
                 
                 </a>
                 <p class="is-size-7">
