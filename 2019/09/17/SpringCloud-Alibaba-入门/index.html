@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 351 words)
+                    2 minutes read (About 346 words)
                 </span>
                 
                 
@@ -178,7 +178,7 @@
 </tr>
 </tbody></table>
 <h1 id="2-SpringCloud-demo"><a href="#2-SpringCloud-demo" class="headerlink" title="2 SpringCloud demo"></a>2 SpringCloud demo</h1><h2 id="2-1-组件构成"><a href="#2-1-组件构成" class="headerlink" title="2.1 组件构成"></a>2.1 组件构成</h2><p>Eureka + Feign + Hystric + Zuul + Config</p>
-<h2 id="2-2-搭建中的问题："><a href="#2-2-搭建中的问题：" class="headerlink" title="2.2 搭建中的问题："></a>2.2 搭建中的问题：</h2><ul>
+<h2 id="2-2-搭建"><a href="#2-2-搭建" class="headerlink" title="2.2 搭建"></a>2.2 搭建</h2><ul>
 <li>公共依赖</li>
 </ul>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;java.version&gt;1.8&lt;/java.version&gt;</span><br><span class="line">    &lt;spring-cloud.version&gt;Greenwich.SR3&lt;/spring-cloud.version&gt;</span><br><span class="line">&lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;spring-cloud.version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">            &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
