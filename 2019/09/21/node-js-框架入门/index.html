@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>ReactJS 入门 - KeepCoding</title>
+<title>node.js 框架入门 - KeepCoding</title>
 
 
 
@@ -78,7 +78,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/avatar.png" alt="ReactJS 入门" height="28">
+                <img src="/images/avatar.png" alt="node.js 框架入门" height="28">
             
             </a>
         </div>
@@ -134,13 +134,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-15T01:22:14.000Z">2019-09-15</time>
+                <time class="level-item has-text-grey" datetime="2019-09-21T05:59:17.000Z">2019-09-21</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 425 words)
+                    a few seconds read (About 57 words)
                 </span>
                 
                 
@@ -149,115 +149,14 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                ReactJS 入门
+                node.js 框架入门
             
         </h1>
         <div class="content">
-            <h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install react react-cli</span><br></pre></td></tr></table></figure>
+            <h1 id="http基础知识"><a href="#http基础知识" class="headerlink" title="http基础知识"></a>http基础知识</h1><h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><h2 id="status-code"><a href="#status-code" class="headerlink" title="status_code"></a>status_code</h2><h1 id="node-js无框架搭建http服务"><a href="#node-js无框架搭建http服务" class="headerlink" title="node.js无框架搭建http服务"></a>node.js无框架搭建http服务</h1><p>server.js</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> url = <span class="hljs-built_in">require</span>(<span class="hljs-string">"url"</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-built_in">console</span>.log(req.url);</span><br><span class="line">	res.writeHead(<span class="hljs-number">200</span>, &#123;<span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/html"</span>&#125;);</span><br><span class="line">	res.write(<span class="hljs-string">"hello world"</span>)</span><br><span class="line">&#125;).listen(<span class="hljs-number">8080</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"server running..."</span>);</span><br></pre></td></tr></table></figure>
 
-<h1 id="2-初始化项目"><a href="#2-初始化项目" class="headerlink" title="2. 初始化项目"></a>2. 初始化项目</h1><h2 id="2-1-Create-React-App"><a href="#2-1-Create-React-App" class="headerlink" title="2.1 Create React App"></a>2.1 Create React App</h2><p>官方页面说create-react-app适用于学习react及创建简易项目：</p>
-<blockquote>
-<p>Create React App is a comfortable environment for learning React, and is the best way to start building a new single-page application in React.</p>
-</blockquote>
-<h3 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx create-react-app react-demo</span><br></pre></td></tr></table></figure>
-
-<p>运行时间相对vue.js初始化较长，完成后react-demo文件夹大小为202M。</p>
-<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init react-app react-demo</span><br></pre></td></tr></table></figure>
-
-<h3 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn create react-app react-demo</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-2-Next-js"><a href="#2-2-Next-js" class="headerlink" title="2.2 Next.js"></a>2.2 Next.js</h2><h2 id="2-3-Gatsby"><a href="#2-3-Gatsby" class="headerlink" title="2.3 Gatsby"></a>2.3 Gatsby</h2><h1 id="3-基本命令"><a href="#3-基本命令" class="headerlink" title="3. 基本命令"></a>3. 基本命令</h1><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ yarn start	// 本地运行</span><br><span class="line">$ yarn build	// 编译生成静态文件</span><br><span class="line">$ yarn <span class="hljs-built_in">test</span> </span><br><span class="line">$ yarn eject	// ?</span><br></pre></td></tr></table></figure>
-
-<p>关于yarn eject的说明：</p>
-<blockquote>
-<p>Removes this tool and copies build dependencies, configuration files and scripts into the app directory. </p>
-</blockquote>
-<h1 id="4-架构-vs-Vue-js"><a href="#4-架构-vs-Vue-js" class="headerlink" title="4. 架构(vs Vue.js)"></a>4. 架构(vs Vue.js)</h1><table>
-<thead>
-<tr>
-<th></th>
-<th>React</th>
-<th>Vue</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>架构</td>
-<td>V (MVC)</td>
-<td>VM (MVVM)</td>
-</tr>
-<tr>
-<td>view</td>
-<td>JSX</td>
-<td>html + js ?</td>
-</tr>
-<tr>
-<td>数据绑定</td>
-<td>单向数据流</td>
-<td>双向数据流</td>
-</tr>
-<tr>
-<td>移动端原生应用</td>
-<td>React Native</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<h1 id="5-Hello-World例子"><a href="#5-Hello-World例子" class="headerlink" title="5. Hello World例子"></a>5. Hello World例子</h1><ul>
-<li>hello world极简例子的文件组成</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── package.json</span><br><span class="line">├── src</span><br><span class="line">│   ├── App.js</span><br><span class="line">│   ├── index.js</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>package.json</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="hljs-string">"name"</span>: <span class="hljs-string">"react-demo"</span>,</span><br><span class="line">  <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.1.0"</span>,</span><br><span class="line">  <span class="hljs-string">"private"</span>: <span class="hljs-literal">true</span>,</span><br><span class="line">  <span class="hljs-string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="hljs-string">"react"</span>: <span class="hljs-string">"^16.9.0"</span>,</span><br><span class="line">    <span class="hljs-string">"react-dom"</span>: <span class="hljs-string">"^16.9.0"</span>,</span><br><span class="line">    <span class="hljs-string">"react-scripts"</span>: <span class="hljs-string">"3.1.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="hljs-string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="hljs-string">"start"</span>: <span class="hljs-string">"react-scripts start"</span>,</span><br><span class="line">    <span class="hljs-string">"build"</span>: <span class="hljs-string">"react-scripts build"</span>,</span><br><span class="line">    <span class="hljs-string">"test"</span>: <span class="hljs-string">"react-scripts test"</span>,</span><br><span class="line">    <span class="hljs-string">"eject"</span>: <span class="hljs-string">"react-scripts eject"</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>index.js</li>
-</ul>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import ReactDOM from &apos;react-dom&apos;;</span><br><span class="line">import App from &apos;./App&apos;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;App /&gt;, document.getElementById(&apos;root&apos;));</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>App.js  </li>
-</ul>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div className=&quot;App&quot;&gt;</span><br><span class="line">      Hello world!</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App;</span><br></pre></td></tr></table></figure>
-
-<h1 id="6-路由机制例子"><a href="#6-路由机制例子" class="headerlink" title="6. 路由机制例子"></a>6. 路由机制例子</h1><ul>
-<li>文件目录</li>
-</ul>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── package.json</span><br><span class="line">├── src</span><br><span class="line">│   ├── App.js</span><br><span class="line">│   ├── World.js</span><br><span class="line">│   ├── index.js</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>index.js</li>
-</ul>
-<p>同Hello World例子</p>
-<ul>
-<li>App.js</li>
-</ul>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import &#123; BrowserRouter as Router, Route &#125; from &apos;react-router-dom&apos;;</span><br><span class="line"></span><br><span class="line">import World from &apos;./World&apos;;</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div className=&quot;App&quot;&gt;</span><br><span class="line">        &lt;Router&gt;</span><br><span class="line">          &lt;Route path=&quot;/hello&quot; component=&#123; World &#125;&gt;&lt;/Route&gt;</span><br><span class="line">        &lt;/Router&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>World.js</li>
-</ul>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function World() &#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            Hello world!</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default World;</span><br></pre></td></tr></table></figure>
-
-<h1 id="JSX语法糖"><a href="#JSX语法糖" class="headerlink" title=". JSX语法糖"></a>. JSX语法糖</h1><h1 id="React-TypeScript"><a href="#React-TypeScript" class="headerlink" title=". React + TypeScript"></a>. React + TypeScript</h1><h1 id="VSCode-插件"><a href="#VSCode-插件" class="headerlink" title=". VSCode 插件"></a>. VSCode 插件</h1><ul>
-<li>Reactjs code snippets</li>
-<li>React native</li>
-<li>…</li>
-</ul>
-<h1 id="tips"><a href="#tips" class="headerlink" title=". tips"></a>. tips</h1><ul>
-<li>版本问题：react-router / react-router-dom</li>
-</ul>
-
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/react/">react</a>
-                </div>
-            </div>
+<h1 id="express-js"><a href="#express-js" class="headerlink" title="express.js"></a>express.js</h1><h1 id="egg-js"><a href="#egg-js" class="headerlink" title="egg.js"></a>egg.js</h1>
         </div>
         
         
@@ -272,16 +171,9 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/16/Java-NIO-Jetty-Netty-入门及对比/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Java BIO / NIO / AIO 对比</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/14/SpringCloud-入门/">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/17/SpringCloud-Alibaba-入门/">
                 <span class="level-item">SpringCloud 入门</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
@@ -763,7 +655,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/avatar.png" alt="ReactJS 入门" height="28">
+                    <img src="/images/avatar.png" alt="node.js 框架入门" height="28">
                 
                 </a>
                 <p class="is-size-7">
