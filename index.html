@@ -187,7 +187,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 194 words)
+                    2 minutes read (About 357 words)
                 </span>
                 
                 
@@ -210,10 +210,63 @@
 <li>该语句放在req.on(“end”, …)之上则打印为空，chunk类型为byte，非空，待分析。</li>
 <li>默认POST数据为form-data。</li>
 </ul>
-<h1 id="2-express-js"><a href="#2-express-js" class="headerlink" title="2. express.js"></a>2. express.js</h1><h2 id="2-1-installation-amp-amp-helloworld-demo"><a href="#2-1-installation-amp-amp-helloworld-demo" class="headerlink" title="2.1 installation &amp;&amp; helloworld demo"></a>2.1 installation &amp;&amp; helloworld demo</h2><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g express express-generator</span><br><span class="line">$ express express-demo</span><br><span class="line">$ <span class="hljs-built_in">cd</span> express-demo</span><br><span class="line">$ npm install</span><br><span class="line">$ npm start</span><br></pre></td></tr></table></figure>
+<h1 id="2-express-js"><a href="#2-express-js" class="headerlink" title="2. express.js"></a>2. express.js</h1><h2 id="2-1-installation-amp-amp-helloworld-demo"><a href="#2-1-installation-amp-amp-helloworld-demo" class="headerlink" title="2.1 installation &amp;&amp; helloworld demo"></a>2.1 installation &amp;&amp; helloworld demo</h2><ul>
+<li>install</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g express express-generator</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>helloworld demo</li>
+</ul>
+<p>server.js </p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">"express"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> app = express();</span><br><span class="line">app.get(<span class="hljs-string">"/"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>&#123;</span><br><span class="line">	res.send(<span class="hljs-string">"&lt;html&gt;&lt;body&gt;Hello world!&lt;/body&gt;&lt;/html&gt;"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">	<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"server running..."</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-express-cli"><a href="#2-2-express-cli" class="headerlink" title="2.2 express cli"></a>2.2 express cli</h2><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ express express-demo</span><br><span class="line">$ <span class="hljs-built_in">cd</span> express-demo</span><br><span class="line">$ npm install</span><br><span class="line">$ npm start</span><br></pre></td></tr></table></figure>
 
 <p>默认访问<a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a></p>
-<h2 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h2><h1 id="3-egg-js"><a href="#3-egg-js" class="headerlink" title="3. egg.js"></a>3. egg.js</h1>
+<h2 id="2-3-express组件分析"><a href="#2-3-express组件分析" class="headerlink" title="2.3 express组件分析"></a>2.3 express组件分析</h2><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── app.js</span><br><span class="line">├── bin</span><br><span class="line">│   └── www</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">│   ├── images</span><br><span class="line">│   ├── javascripts</span><br><span class="line">│   └── stylesheets</span><br><span class="line">│       └── style.css</span><br><span class="line">├── routes</span><br><span class="line">│   ├── index.js</span><br><span class="line">│   └── users.js</span><br><span class="line">└── views</span><br><span class="line">    ├── error.jade</span><br><span class="line">    ├── index.jade</span><br><span class="line">    └── layout.jade</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>组件</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>app.js</td>
+<td>express服务入口</td>
+</tr>
+<tr>
+<td>2</td>
+<td>bin/www</td>
+<td>端口、启动等配置</td>
+</tr>
+<tr>
+<td>3</td>
+<td>routes</td>
+<td>路由</td>
+</tr>
+<tr>
+<td>4</td>
+<td>*controller</td>
+<td>控制层</td>
+</tr>
+<tr>
+<td>5</td>
+<td>*model</td>
+<td>数据模型</td>
+</tr>
+<tr>
+<td>6</td>
+<td>views</td>
+<td>前端视图</td>
+</tr>
+</tbody></table>
+<p>*号为自行添加模块</p>
+<h1 id="3-egg-js"><a href="#3-egg-js" class="headerlink" title="3. egg.js"></a>3. egg.js</h1>
         </div>
         
         
