@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 35 words)
+                    a few seconds read (About 111 words)
                 </span>
                 
                 
@@ -158,7 +158,35 @@
 <li>字节码</li>
 <li></li>
 </ul>
-<h1 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a>类加载</h1><h1 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h1><h1 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h1><h1 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h1>
+<h1 id="1-虚拟机内存结构"><a href="#1-虚拟机内存结构" class="headerlink" title="1. 虚拟机内存结构"></a>1. 虚拟机内存结构</h1><ul>
+<li>虚拟机内存结构 = 运行时数据区（Runtime Data Area）</li>
+</ul>
+<h2 id="1-1-公有部分"><a href="#1-1-公有部分" class="headerlink" title="1.1 公有部分"></a>1.1 公有部分</h2><p><img src="/images/2019-09/jvm_structure_public.png" alt="JVM 公有部分"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>名称</th>
+<th>存储内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Java 堆</td>
+<td>Java 实例对象</td>
+</tr>
+<tr>
+<td>2</td>
+<td>方法区</td>
+<td>存储 Java 类字节码数据，含常量池</td>
+</tr>
+<tr>
+<td>3</td>
+<td>常量池</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="1-2-私有部分"><a href="#1-2-私有部分" class="headerlink" title="1.2 私有部分"></a>1.2 私有部分</h2><h1 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a>类加载</h1><h1 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h1><h1 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h1><h1 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h1>
         </div>
         
         <div class="level is-size-7 is-uppercase">
