@@ -135,6 +135,181 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-09-15T01:22:14.000Z">2019-09-15</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 425 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/09/15/ReactJS-入门/">ReactJS 入门</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install react react-cli</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-初始化项目"><a href="#2-初始化项目" class="headerlink" title="2. 初始化项目"></a>2. 初始化项目</h1><h2 id="2-1-Create-React-App"><a href="#2-1-Create-React-App" class="headerlink" title="2.1 Create React App"></a>2.1 Create React App</h2><p>官方页面说create-react-app适用于学习react及创建简易项目：</p>
+<blockquote>
+<p>Create React App is a comfortable environment for learning React, and is the best way to start building a new single-page application in React.</p>
+</blockquote>
+<h3 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx create-react-app react-demo</span><br></pre></td></tr></table></figure>
+
+<p>运行时间相对vue.js初始化较长，完成后react-demo文件夹大小为202M。</p>
+<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init react-app react-demo</span><br></pre></td></tr></table></figure>
+
+<h3 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn create react-app react-demo</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-Next-js"><a href="#2-2-Next-js" class="headerlink" title="2.2 Next.js"></a>2.2 Next.js</h2><h2 id="2-3-Gatsby"><a href="#2-3-Gatsby" class="headerlink" title="2.3 Gatsby"></a>2.3 Gatsby</h2><h1 id="3-基本命令"><a href="#3-基本命令" class="headerlink" title="3. 基本命令"></a>3. 基本命令</h1><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ yarn start	// 本地运行</span><br><span class="line">$ yarn build	// 编译生成静态文件</span><br><span class="line">$ yarn <span class="hljs-built_in">test</span> </span><br><span class="line">$ yarn eject	// ?</span><br></pre></td></tr></table></figure>
+
+<p>关于yarn eject的说明：</p>
+<blockquote>
+<p>Removes this tool and copies build dependencies, configuration files and scripts into the app directory. </p>
+</blockquote>
+<h1 id="4-架构-vs-Vue-js"><a href="#4-架构-vs-Vue-js" class="headerlink" title="4. 架构(vs Vue.js)"></a>4. 架构(vs Vue.js)</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>React</th>
+<th>Vue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>架构</td>
+<td>V (MVC)</td>
+<td>VM (MVVM)</td>
+</tr>
+<tr>
+<td>view</td>
+<td>JSX</td>
+<td>html + js ?</td>
+</tr>
+<tr>
+<td>数据绑定</td>
+<td>单向数据流</td>
+<td>双向数据流</td>
+</tr>
+<tr>
+<td>移动端原生应用</td>
+<td>React Native</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h1 id="5-Hello-World例子"><a href="#5-Hello-World例子" class="headerlink" title="5. Hello World例子"></a>5. Hello World例子</h1><ul>
+<li>hello world极简例子的文件组成</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── package.json</span><br><span class="line">├── src</span><br><span class="line">│   ├── App.js</span><br><span class="line">│   ├── index.js</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>package.json</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="hljs-string">"name"</span>: <span class="hljs-string">"react-demo"</span>,</span><br><span class="line">  <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.1.0"</span>,</span><br><span class="line">  <span class="hljs-string">"private"</span>: <span class="hljs-literal">true</span>,</span><br><span class="line">  <span class="hljs-string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="hljs-string">"react"</span>: <span class="hljs-string">"^16.9.0"</span>,</span><br><span class="line">    <span class="hljs-string">"react-dom"</span>: <span class="hljs-string">"^16.9.0"</span>,</span><br><span class="line">    <span class="hljs-string">"react-scripts"</span>: <span class="hljs-string">"3.1.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="hljs-string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="hljs-string">"start"</span>: <span class="hljs-string">"react-scripts start"</span>,</span><br><span class="line">    <span class="hljs-string">"build"</span>: <span class="hljs-string">"react-scripts build"</span>,</span><br><span class="line">    <span class="hljs-string">"test"</span>: <span class="hljs-string">"react-scripts test"</span>,</span><br><span class="line">    <span class="hljs-string">"eject"</span>: <span class="hljs-string">"react-scripts eject"</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>index.js</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import ReactDOM from &apos;react-dom&apos;;</span><br><span class="line">import App from &apos;./App&apos;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;App /&gt;, document.getElementById(&apos;root&apos;));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>App.js  </li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div className=&quot;App&quot;&gt;</span><br><span class="line">      Hello world!</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App;</span><br></pre></td></tr></table></figure>
+
+<h1 id="6-路由机制例子"><a href="#6-路由机制例子" class="headerlink" title="6. 路由机制例子"></a>6. 路由机制例子</h1><ul>
+<li>文件目录</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── package.json</span><br><span class="line">├── src</span><br><span class="line">│   ├── App.js</span><br><span class="line">│   ├── World.js</span><br><span class="line">│   ├── index.js</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>index.js</li>
+</ul>
+<p>同Hello World例子</p>
+<ul>
+<li>App.js</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import &#123; BrowserRouter as Router, Route &#125; from &apos;react-router-dom&apos;;</span><br><span class="line"></span><br><span class="line">import World from &apos;./World&apos;;</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div className=&quot;App&quot;&gt;</span><br><span class="line">        &lt;Router&gt;</span><br><span class="line">          &lt;Route path=&quot;/hello&quot; component=&#123; World &#125;&gt;&lt;/Route&gt;</span><br><span class="line">        &lt;/Router&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>World.js</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function World() &#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            Hello world!</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default World;</span><br></pre></td></tr></table></figure>
+
+<h1 id="JSX语法糖"><a href="#JSX语法糖" class="headerlink" title=". JSX语法糖"></a>. JSX语法糖</h1><h1 id="React-TypeScript"><a href="#React-TypeScript" class="headerlink" title=". React + TypeScript"></a>. React + TypeScript</h1><h1 id="VSCode-插件"><a href="#VSCode-插件" class="headerlink" title=". VSCode 插件"></a>. VSCode 插件</h1><ul>
+<li>Reactjs code snippets</li>
+<li>React native</li>
+<li>…</li>
+</ul>
+<h1 id="tips"><a href="#tips" class="headerlink" title=". tips"></a>. tips</h1><ul>
+<li>版本问题：react-router / react-router-dom</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-09-14T02:45:01.000Z">2019-09-14</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    a few seconds read (About 0 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/09/14/SpringCloud-入门/">SpringCloud 入门</a>
+            
+        </h1>
+        <div class="content">
+            
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-09-13T02:45:08.000Z">2019-09-13</time>
                 
                 
@@ -252,7 +427,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        11
+                        13
                     </p>
                 </div>
             </div>
@@ -272,7 +447,7 @@
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        11
                     </p>
                 </div>
             </div>
@@ -312,7 +487,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/JVM基础/" style="font-size: 10px;">JVM基础</a> <a href="/tags/Java-BIO-NIO-AIO/" style="font-size: 10px;">Java BIO NIO AIO</a> <a href="/tags/SpringCloud/" style="font-size: 10px;">SpringCloud</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/github-pages-hexo/" style="font-size: 10px;">github pages hexo</a> <a href="/tags/http-tcp三次握手/" style="font-size: 10px;">http tcp三次握手</a> <a href="/tags/mongodb-nosql/" style="font-size: 10px;">mongodb nosql</a> <a href="/tags/rancher/" style="font-size: 10px;">rancher</a> <a href="/tags/react/" style="font-size: 10px;">react</a>
+        <a href="/tags/CommonJS-AMDJS-ES6/" style="font-size: 10px;">CommonJS AMDJS ES6</a> <a href="/tags/JVM基础/" style="font-size: 10px;">JVM基础</a> <a href="/tags/Java-BIO-NIO-AIO/" style="font-size: 10px;">Java BIO NIO AIO</a> <a href="/tags/SpringCloud/" style="font-size: 10px;">SpringCloud</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/github-pages-hexo/" style="font-size: 10px;">github pages hexo</a> <a href="/tags/http-tcp三次握手/" style="font-size: 10px;">http tcp三次握手</a> <a href="/tags/mongodb-nosql/" style="font-size: 10px;">mongodb nosql</a> <a href="/tags/rancher/" style="font-size: 10px;">rancher</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
     </div>
 </div>
 
@@ -326,6 +501,44 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/09/27/JavaScript标准/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="JavaScript标准">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-27T12:51:20.000Z">2019-09-27</time></div>
+                    <a href="/2019/09/27/JavaScript标准/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JavaScript标准</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/25/Vue-js-入门及进阶/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vue.js 入门及进阶">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-25T05:34:12.000Z">2019-09-25</time></div>
+                    <a href="/2019/09/25/Vue-js-入门及进阶/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vue.js 入门及进阶</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -384,44 +597,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/09/22/JVM-入门/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="JVM 入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T11:09:40.000Z">2019-09-22</time></div>
-                    <a href="/2019/09/22/JVM-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JVM 入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/09/21/HTTP及TCP协议入门/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HTTP及TCP协议入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-21T11:56:06.000Z">2019-09-21</time></div>
-                    <a href="/2019/09/21/HTTP及TCP协议入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTTP及TCP协议入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -440,7 +615,7 @@
                     <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -457,6 +632,13 @@
                 Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS-AMDJS-ES6/">
+                        <span class="tag">CommonJS AMDJS ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/JVM基础/">
@@ -517,6 +699,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/react/">
                         <span class="tag">react</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -546,6 +735,44 @@
         
         <article class="media">
             
+            <a href="/2019/09/27/JavaScript标准/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="JavaScript标准">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-27T12:51:20.000Z">2019-09-27</time></div>
+                    <a href="/2019/09/27/JavaScript标准/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JavaScript标准</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/25/Vue-js-入门及进阶/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vue.js 入门及进阶">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-25T05:34:12.000Z">2019-09-25</time></div>
+                    <a href="/2019/09/25/Vue-js-入门及进阶/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vue.js 入门及进阶</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/09/25/MongoDB-入门/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="MongoDB 入门">
@@ -601,44 +828,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/09/22/JVM-入门/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="JVM 入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-22T11:09:40.000Z">2019-09-22</time></div>
-                    <a href="/2019/09/22/JVM-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JVM 入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/09/21/HTTP及TCP协议入门/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HTTP及TCP协议入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-21T11:56:06.000Z">2019-09-21</time></div>
-                    <a href="/2019/09/21/HTTP及TCP协议入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTTP及TCP协议入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -657,7 +846,7 @@
                     <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -674,6 +863,13 @@
                 Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS-AMDJS-ES6/">
+                        <span class="tag">CommonJS AMDJS ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/JVM基础/">
@@ -734,6 +930,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/react/">
                         <span class="tag">react</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
