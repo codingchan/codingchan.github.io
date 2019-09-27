@@ -563,7 +563,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 440 words)
+                    3 minutes read (About 480 words)
                 </span>
                 
                 
@@ -658,7 +658,19 @@
 </ul>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sequelize</span><br><span class="line">  .authenticate()</span><br><span class="line">  .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Connection has been established successfully.'</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'Unable to connect to the database:'</span>, err);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-4-2-demo"><a href="#2-4-2-demo" class="headerlink" title="2.4.2 demo"></a>2.4.2 demo</h3><h3 id="2-4-3-sequelize-auto"><a href="#2-4-3-sequelize-auto" class="headerlink" title="2.4.3 sequelize-auto"></a>2.4.3 sequelize-auto</h3><h1 id="3-sails-js"><a href="#3-sails-js" class="headerlink" title="3. sails.js"></a>3. sails.js</h1>
+<h3 id="2-4-2-demo"><a href="#2-4-2-demo" class="headerlink" title="2.4.2 demo"></a>2.4.2 demo</h3><h3 id="2-4-3-sequelize-auto"><a href="#2-4-3-sequelize-auto" class="headerlink" title="2.4.3 sequelize-auto"></a>2.4.3 sequelize-auto</h3><ul>
+<li>intallation</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g sequelize-auto</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>usage</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sequelize-auto -h &lt;host&gt; -d &lt;database&gt; -u &lt;user&gt; -x [password] -p [port]  --dialect [dialect] -c [/path/to/config] -o [/path/to/models] -t [tableName] -C</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> model_name = sequelize.import(<span class="hljs-string">'PATH/TO/MODEL'</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-sails-js"><a href="#3-sails-js" class="headerlink" title="3. sails.js"></a>3. sails.js</h1>
         </div>
         
         
