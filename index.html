@@ -115,6 +115,51 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-09-29T12:17:46.000Z">2019-09-29</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    a few seconds read (About 21 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/09/29/C-like-language-intro/">C-like 语言REPL入门</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h1><ul>
+<li>var: 类型引导而非弱类型，定义后类型不可改变</li>
+</ul>
+<p># </p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-09-27T14:24:29.000Z">2019-09-27</time>
                 
                 
@@ -408,47 +453,6 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-23T07:24:14.000Z">2019-09-23</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    a few seconds read (About 0 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/09/23/Rancher-Introduction/">Rancher 使用入门</a>
-            
-        </h1>
-        <div class="content">
-            
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-09-22T11:09:40.000Z">2019-09-22</time>
                 
                 
@@ -581,7 +585,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 583 words)
+                    4 minutes read (About 582 words)
                 </span>
                 
                 
@@ -598,7 +602,7 @@
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-built_in">console</span>.log(req.url);</span><br><span class="line">	res.writeHead(<span class="hljs-number">200</span>, &#123;<span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/html"</span>&#125;);</span><br><span class="line">	res.write(<span class="hljs-string">"&lt;html&gt;&lt;body&gt;&lt;p&gt;hello world&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"</span>)</span><br><span class="line">&#125;).listen(<span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"server running..."</span>)&#125;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="1-2-GET-amp-amp-POST"><a href="#1-2-GET-amp-amp-POST" class="headerlink" title="1.2 GET &amp;&amp; POST"></a>1.2 GET &amp;&amp; POST</h2><p>server.js</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>)</span><br><span class="line"><span class="hljs-keyword">var</span> url = <span class="hljs-built_in">require</span>(<span class="hljs-string">"url"</span>)</span><br><span class="line"><span class="hljs-keyword">var</span> queryString = <span class="hljs-built_in">require</span>(<span class="hljs-string">"querystring"</span>)</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-built_in">console</span>.log(req.method);</span><br><span class="line">	<span class="hljs-keyword">if</span> (req.method === <span class="hljs-string">"GET"</span>) &#123;</span><br><span class="line">		<span class="hljs-keyword">var</span> params = url.parse(req.url, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>);</span><br><span class="line">		<span class="hljs-built_in">console</span>.log(params);</span><br><span class="line"></span><br><span class="line">		res.end(<span class="hljs-built_in">JSON</span>.stringify(params));</span><br><span class="line">	&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (req.method === <span class="hljs-string">"POST"</span>) &#123;</span><br><span class="line">		<span class="hljs-keyword">var</span> data_str = <span class="hljs-string">""</span>;</span><br><span class="line">		req.on(<span class="hljs-string">"data"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">chunk</span>) </span>&#123;</span><br><span class="line">			data_str += chunk;</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">		req.on(<span class="hljs-string">"end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">			<span class="hljs-built_in">console</span>.log(data_str);  <span class="hljs-comment">// 见注释</span></span><br><span class="line">			res.end(data_str);</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).listen(<span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">	<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"server running..."</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> url = <span class="hljs-built_in">require</span>(<span class="hljs-string">"url"</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-built_in">console</span>.log(req.method);</span><br><span class="line">	<span class="hljs-keyword">if</span> (req.method === <span class="hljs-string">"GET"</span>) &#123;</span><br><span class="line">		<span class="hljs-keyword">var</span> params = url.parse(req.url, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>);</span><br><span class="line">		<span class="hljs-built_in">console</span>.log(params);</span><br><span class="line"></span><br><span class="line">		res.end(<span class="hljs-built_in">JSON</span>.stringify(params));</span><br><span class="line">	&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (req.method === <span class="hljs-string">"POST"</span>) &#123;</span><br><span class="line">		<span class="hljs-keyword">var</span> data_str = <span class="hljs-string">""</span>;</span><br><span class="line">		req.on(<span class="hljs-string">"data"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">chunk</span>) </span>&#123;</span><br><span class="line">			data_str += chunk;</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">		req.on(<span class="hljs-string">"end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">			<span class="hljs-built_in">console</span>.log(data_str);  <span class="hljs-comment">// 见注释</span></span><br><span class="line">			res.end(data_str);</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).listen(<span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">	<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"server running..."</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>该语句放在req.on(“end”, …)之上则打印为空，chunk类型为byte，非空，待分析</li>
@@ -698,7 +702,9 @@
 
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> model_name = sequelize.import(<span class="hljs-string">'PATH/TO/MODEL'</span>);</span><br></pre></td></tr></table></figure>
 
-<h1 id="3-sails-js"><a href="#3-sails-js" class="headerlink" title="3. sails.js"></a>3. sails.js</h1>
+<h1 id="3-sails-js"><a href="#3-sails-js" class="headerlink" title="3. sails.js"></a>3. sails.js</h1><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// fixme</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-并发"><a href="#4-并发" class="headerlink" title="4. 并发"></a>4. 并发</h1>
         </div>
         
         
@@ -897,7 +903,7 @@
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        12
+                        11
                     </p>
                 </div>
             </div>
@@ -934,7 +940,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/CommonJS-AMDJS-ES6/" style="font-size: 10px;">CommonJS AMDJS ES6</a> <a href="/tags/JVM基础/" style="font-size: 10px;">JVM基础</a> <a href="/tags/Java-BIO-NIO-AIO/" style="font-size: 10px;">Java BIO NIO AIO</a> <a href="/tags/SpringCloud/" style="font-size: 10px;">SpringCloud</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/github-pages-hexo/" style="font-size: 10px;">github pages hexo</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/http-tcp三次握手/" style="font-size: 10px;">http tcp三次握手</a> <a href="/tags/mongodb-nosql/" style="font-size: 10px;">mongodb nosql</a> <a href="/tags/rancher/" style="font-size: 10px;">rancher</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
+        <a href="/tags/CommonJS-AMDJS-ES6/" style="font-size: 10px;">CommonJS AMDJS ES6</a> <a href="/tags/JVM基础/" style="font-size: 10px;">JVM基础</a> <a href="/tags/Java-BIO-NIO-AIO/" style="font-size: 10px;">Java BIO NIO AIO</a> <a href="/tags/SpringCloud/" style="font-size: 10px;">SpringCloud</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/github-pages-hexo/" style="font-size: 10px;">github pages hexo</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/http-tcp三次握手/" style="font-size: 10px;">http tcp三次握手</a> <a href="/tags/mongodb-nosql/" style="font-size: 10px;">mongodb nosql</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
     </div>
 </div>
     
@@ -946,6 +952,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/09/29/C-like-language-intro/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="C-like 语言REPL入门">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-29T12:17:46.000Z">2019-09-29</time></div>
+                    <a href="/2019/09/29/C-like-language-intro/" class="title has-link-black-ter is-size-6 has-text-weight-normal">C-like 语言REPL入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1016,25 +1041,6 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-25T05:16:28.000Z">2019-09-25</time></div>
                     <a href="/2019/09/25/MongoDB-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MongoDB 入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/09/24/Docker-入门/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Docker 入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-24T02:19:19.000Z">2019-09-24</time></div>
-                    <a href="/2019/09/24/Docker-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Docker 入门</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -1136,13 +1142,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/mongodb-nosql/">
                         <span class="tag">mongodb nosql</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/rancher/">
-                        <span class="tag">rancher</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1185,6 +1184,25 @@
         
         <article class="media">
             
+            <a href="/2019/09/29/C-like-language-intro/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="C-like 语言REPL入门">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-29T12:17:46.000Z">2019-09-29</time></div>
+                    <a href="/2019/09/29/C-like-language-intro/" class="title has-link-black-ter is-size-6 has-text-weight-normal">C-like 语言REPL入门</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/09/27/Go-and-Framework-Introduction/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Go 语言入门">
@@ -1252,25 +1270,6 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-25T05:16:28.000Z">2019-09-25</time></div>
                     <a href="/2019/09/25/MongoDB-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MongoDB 入门</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/09/24/Docker-入门/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Docker 入门">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-24T02:19:19.000Z">2019-09-24</time></div>
-                    <a href="/2019/09/24/Docker-入门/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Docker 入门</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -1372,13 +1371,6 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/mongodb-nosql/">
                         <span class="tag">mongodb nosql</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/rancher/">
-                        <span class="tag">rancher</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
