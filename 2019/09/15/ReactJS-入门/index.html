@@ -133,26 +133,26 @@
             
         </h1>
         <div class="content">
-            <h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install react react-cli</span><br></pre></td></tr></table></figure>
+            <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install react react-cli</span><br></pre></td></tr></table></figure>
 
-<h1 id="2-初始化项目"><a href="#2-初始化项目" class="headerlink" title="2. 初始化项目"></a>2. 初始化项目</h1><h2 id="2-1-Create-React-App"><a href="#2-1-Create-React-App" class="headerlink" title="2.1 Create React App"></a>2.1 Create React App</h2><p>官方页面说create-react-app适用于学习react及创建简易项目：</p>
+<h2 id="2-初始化项目"><a href="#2-初始化项目" class="headerlink" title="2. 初始化项目"></a>2. 初始化项目</h2><h3 id="2-1-Create-React-App"><a href="#2-1-Create-React-App" class="headerlink" title="2.1 Create React App"></a>2.1 Create React App</h3><p>官方页面说create-react-app适用于学习react及创建简易项目：</p>
 <blockquote>
 <p>Create React App is a comfortable environment for learning React, and is the best way to start building a new single-page application in React.</p>
 </blockquote>
-<h3 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx create-react-app react-demo</span><br></pre></td></tr></table></figure>
+<h4 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx create-react-app react-demo</span><br></pre></td></tr></table></figure>
 
 <p>运行时间相对vue.js初始化较长，完成后react-demo文件夹大小为202M。</p>
-<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init react-app react-demo</span><br></pre></td></tr></table></figure>
+<h4 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init react-app react-demo</span><br></pre></td></tr></table></figure>
 
-<h3 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn create react-app react-demo</span><br></pre></td></tr></table></figure>
+<h4 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn create react-app react-demo</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-2-Next-js"><a href="#2-2-Next-js" class="headerlink" title="2.2 Next.js"></a>2.2 Next.js</h2><h2 id="2-3-Gatsby"><a href="#2-3-Gatsby" class="headerlink" title="2.3 Gatsby"></a>2.3 Gatsby</h2><h1 id="3-基本命令"><a href="#3-基本命令" class="headerlink" title="3. 基本命令"></a>3. 基本命令</h1><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ yarn start	// 本地运行</span><br><span class="line">$ yarn build	// 编译生成静态文件</span><br><span class="line">$ yarn <span class="hljs-built_in">test</span> </span><br><span class="line">$ yarn eject	// ?</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-Next-js"><a href="#2-2-Next-js" class="headerlink" title="2.2 Next.js"></a>2.2 Next.js</h3><h3 id="2-3-Gatsby"><a href="#2-3-Gatsby" class="headerlink" title="2.3 Gatsby"></a>2.3 Gatsby</h3><h2 id="3-基本命令"><a href="#3-基本命令" class="headerlink" title="3. 基本命令"></a>3. 基本命令</h2><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ yarn start	// 本地运行</span><br><span class="line">$ yarn build	// 编译生成静态文件</span><br><span class="line">$ yarn <span class="hljs-built_in">test</span> </span><br><span class="line">$ yarn eject	// ?</span><br></pre></td></tr></table></figure>
 
 <p>关于yarn eject的说明：</p>
 <blockquote>
 <p>Removes this tool and copies build dependencies, configuration files and scripts into the app directory. </p>
 </blockquote>
-<h1 id="4-架构-vs-Vue-js"><a href="#4-架构-vs-Vue-js" class="headerlink" title="4. 架构(vs Vue.js)"></a>4. 架构(vs Vue.js)</h1><table>
+<h2 id="4-架构-vs-Vue-js"><a href="#4-架构-vs-Vue-js" class="headerlink" title="4. 架构(vs Vue.js)"></a>4. 架构(vs Vue.js)</h2><table>
 <thead>
 <tr>
 <th></th>
@@ -181,7 +181,7 @@
 <td>-</td>
 </tr>
 </tbody></table>
-<h1 id="5-Hello-World例子"><a href="#5-Hello-World例子" class="headerlink" title="5. Hello World例子"></a>5. Hello World例子</h1><ul>
+<h2 id="5-Hello-World例子"><a href="#5-Hello-World例子" class="headerlink" title="5. Hello World例子"></a>5. Hello World例子</h2><ul>
 <li>hello world极简例子的文件组成</li>
 </ul>
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── package.json</span><br><span class="line">├── src</span><br><span class="line">│   ├── App.js</span><br><span class="line">│   ├── index.js</span><br></pre></td></tr></table></figure>
@@ -201,7 +201,7 @@
 </ul>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div className=&quot;App&quot;&gt;</span><br><span class="line">      Hello world!</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App;</span><br></pre></td></tr></table></figure>
 
-<h1 id="6-路由机制例子"><a href="#6-路由机制例子" class="headerlink" title="6. 路由机制例子"></a>6. 路由机制例子</h1><ul>
+<h2 id="6-路由机制例子"><a href="#6-路由机制例子" class="headerlink" title="6. 路由机制例子"></a>6. 路由机制例子</h2><ul>
 <li>文件目录</li>
 </ul>
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── package.json</span><br><span class="line">├── src</span><br><span class="line">│   ├── App.js</span><br><span class="line">│   ├── World.js</span><br><span class="line">│   ├── index.js</span><br></pre></td></tr></table></figure>
@@ -220,12 +220,12 @@
 </ul>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function World() &#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            Hello world!</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default World;</span><br></pre></td></tr></table></figure>
 
-<h1 id="JSX语法糖"><a href="#JSX语法糖" class="headerlink" title=". JSX语法糖"></a>. JSX语法糖</h1><h1 id="React-TypeScript"><a href="#React-TypeScript" class="headerlink" title=". React + TypeScript"></a>. React + TypeScript</h1><h1 id="VSCode-插件"><a href="#VSCode-插件" class="headerlink" title=". VSCode 插件"></a>. VSCode 插件</h1><ul>
+<h2 id="JSX语法糖"><a href="#JSX语法糖" class="headerlink" title=". JSX语法糖"></a>. JSX语法糖</h2><h2 id="React-TypeScript"><a href="#React-TypeScript" class="headerlink" title=". React + TypeScript"></a>. React + TypeScript</h2><h2 id="VSCode-插件"><a href="#VSCode-插件" class="headerlink" title=". VSCode 插件"></a>. VSCode 插件</h2><ul>
 <li>Reactjs code snippets</li>
 <li>React native</li>
 <li>…</li>
 </ul>
-<h1 id="tips"><a href="#tips" class="headerlink" title=". tips"></a>. tips</h1><ul>
+<h2 id="tips"><a href="#tips" class="headerlink" title=". tips"></a>. tips</h2><ul>
 <li>版本问题：react-router / react-router-dom</li>
 </ul>
 

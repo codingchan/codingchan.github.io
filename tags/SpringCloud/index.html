@@ -144,7 +144,7 @@
             
         </h1>
         <div class="content">
-            <h1 id="1-基础"><a href="#1-基础" class="headerlink" title="1. 基础"></a>1. 基础</h1><h2 id="1-1-SpringCloud-Netflix-基础组件"><a href="#1-1-SpringCloud-Netflix-基础组件" class="headerlink" title="1.1 SpringCloud Netflix 基础组件"></a>1.1 SpringCloud Netflix 基础组件</h2><table>
+            <h2 id="1-基础"><a href="#1-基础" class="headerlink" title="1. 基础"></a>1. 基础</h2><h3 id="1-1-SpringCloud-Netflix-基础组件"><a href="#1-1-SpringCloud-Netflix-基础组件" class="headerlink" title="1.1 SpringCloud Netflix 基础组件"></a>1.1 SpringCloud Netflix 基础组件</h3><table>
 <thead>
 <tr>
 <th></th>
@@ -168,14 +168,14 @@
 <td>Spring Cloud Config</td>
 </tr>
 </tbody></table>
-<h1 id="2-SpringCloud-demo"><a href="#2-SpringCloud-demo" class="headerlink" title="2 SpringCloud demo"></a>2 SpringCloud demo</h1><h2 id="2-1-组件构成"><a href="#2-1-组件构成" class="headerlink" title="2.1 组件构成"></a>2.1 组件构成</h2><p>Eureka + Feign + Hystric + Zuul + Config</p>
-<h2 id="2-2-搭建"><a href="#2-2-搭建" class="headerlink" title="2.2 搭建"></a>2.2 搭建</h2><ul>
+<h2 id="2-SpringCloud-demo"><a href="#2-SpringCloud-demo" class="headerlink" title="2 SpringCloud demo"></a>2 SpringCloud demo</h2><h3 id="2-1-组件构成"><a href="#2-1-组件构成" class="headerlink" title="2.1 组件构成"></a>2.1 组件构成</h3><p>Eureka + Feign + Hystric + Zuul + Config</p>
+<h3 id="2-2-搭建"><a href="#2-2-搭建" class="headerlink" title="2.2 搭建"></a>2.2 搭建</h3><ul>
 <li>公共依赖</li>
 </ul>
 <p>pom.xml</p>
 <figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">java.version</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">java.version</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">spring-cloud.version</span>&gt;</span>Greenwich.SR3<span class="hljs-tag">&lt;/<span class="hljs-name">spring-cloud.version</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;spring-cloud.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-2-1-eureka-server"><a href="#2-2-1-eureka-server" class="headerlink" title="2.2.1 eureka server"></a>2.2.1 eureka server</h3><ul>
+<h4 id="2-2-1-eureka-server"><a href="#2-2-1-eureka-server" class="headerlink" title="2.2.1 eureka server"></a>2.2.1 eureka server</h4><ul>
 <li>依赖</li>
 </ul>
 <p>pom.xml</p>
@@ -188,7 +188,7 @@
 <li>Application添加@EnableEurekaServer标注</li>
 <li>eureka.renewalPercentThreshold=0.85导致错误：EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY’RE NOT. 解决方法：修改为0.5 或 开启多个eureka server</li>
 </ul>
-<h3 id="2-2-2-Feign-Hystrix"><a href="#2-2-2-Feign-Hystrix" class="headerlink" title="2.2.2 Feign + Hystrix"></a>2.2.2 Feign + Hystrix</h3><ul>
+<h4 id="2-2-2-Feign-Hystrix"><a href="#2-2-2-Feign-Hystrix" class="headerlink" title="2.2.2 Feign + Hystrix"></a>2.2.2 Feign + Hystrix</h4><ul>
 <li>依赖</li>
 </ul>
 <p>pom.xml</p>
@@ -201,7 +201,7 @@
 <li>Application添加@@EnableEurekaClient、@EnableFeignClients</li>
 <li>为对应的微服务接口建立interface，添加@FeignClient标注，添加fallback选项以配置Hystrix</li>
 </ul>
-<h3 id="2-2-3-Zuul"><a href="#2-2-3-Zuul" class="headerlink" title="2.2.3 Zuul"></a>2.2.3 Zuul</h3><ul>
+<h4 id="2-2-3-Zuul"><a href="#2-2-3-Zuul" class="headerlink" title="2.2.3 Zuul"></a>2.2.3 Zuul</h4><ul>
 <li>依赖</li>
 </ul>
 <p>pom.xml</p>
@@ -213,7 +213,7 @@
 <ul>
 <li>Application添加@EnableEurekaClient、@EnableZuulProxy标注</li>
 </ul>
-<h3 id="2-2-4-Config"><a href="#2-2-4-Config" class="headerlink" title="2.2.4 Config"></a>2.2.4 Config</h3>
+<h4 id="2-2-4-Config"><a href="#2-2-4-Config" class="headerlink" title="2.2.4 Config"></a>2.2.4 Config</h4>
         </div>
         
         
