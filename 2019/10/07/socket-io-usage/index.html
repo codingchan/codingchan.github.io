@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: golang - KeepCoding</title>
+<title>socket.io 使用小结 - KeepCoding</title>
 
 
 
@@ -66,7 +66,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/avatar_.png" alt="KeepCoding" height="28">
+                <img src="/images/avatar_.png" alt="socket.io 使用小结" height="28">
             
             </a>
         </div>
@@ -107,31 +107,20 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">golang</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-27T14:24:29.000Z">2019-09-27</time>
+                <time class="level-item has-text-grey" datetime="2019-10-07T02:23:44.000Z">2019-10-07</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 0 words)
+                    a few seconds read (About 99 words)
                 </span>
                 
                 
@@ -140,11 +129,22 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/09/27/Go-and-Framework-Introduction/">Go 语言入门</a>
+                socket.io 使用小结
             
         </h1>
         <div class="content">
-            
+            <h2 id="namespace-amp-amp-room-amp-amp-path"><a href="#namespace-amp-amp-room-amp-amp-path" class="headerlink" title="namespace &amp;&amp; room &amp;&amp; path"></a>namespace &amp;&amp; room &amp;&amp; path</h2><h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><ul>
+<li>io(‘<a href="http://URL:PORT&#39;" target="_blank" rel="noopener">http://URL:PORT&#39;</a>) 直接连根路径时最后不能加 ‘/‘;</li>
+<li>io(‘<a href="http://URL:PORT&#39;" target="_blank" rel="noopener">http://URL:PORT&#39;</a> + ROOM) 时 ROOM 需以 ‘/ROOM_NAME’ 格式;</li>
+</ul>
+<h2 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h2><ul>
+<li>require socket.io 无效问题</li>
+</ul>
+<p>无效引用：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> router = express.Router();</span><br><span class="line"><span class="hljs-keyword">var</span> io = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../app'</span>).io;  <span class="hljs-comment">// api 中调用为空</span></span><br><span class="line"><span class="hljs-keyword">var</span> message = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../model/message'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>有效引用</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.post(<span class="hljs-string">'/create_room'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">let</span> room_name = <span class="hljs-string">'/'</span> + req.body.roomName;</span><br><span class="line">  <span class="hljs-keyword">var</span> io = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../app'</span>).io;    <span class="hljs-comment">// io 有效</span></span><br><span class="line">  <span class="hljs-comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -156,7 +156,19 @@
 
 
 
-
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/05/VS-Code-tips/">
+                <span class="level-item">VS Code tips</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -739,7 +751,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/avatar_.png" alt="KeepCoding" height="28">
+                    <img src="/images/avatar_.png" alt="socket.io 使用小结" height="28">
                 
                 </a>
                 <p class="is-size-7">
