@@ -138,10 +138,7 @@
 <li>io(‘<a href="http://URL:PORT&#39;" target="_blank" rel="noopener">http://URL:PORT&#39;</a>) 直接连根路径时最后不能加 ‘/‘;</li>
 <li>io(‘<a href="http://URL:PORT&#39;" target="_blank" rel="noopener">http://URL:PORT&#39;</a> + ROOM) 时 ROOM 需以 ‘/ROOM_NAME’ 格式;</li>
 </ul>
-<h2 id="3-疑问"><a href="#3-疑问" class="headerlink" title="3. 疑问"></a>3. 疑问</h2><ul>
-<li>require socket.io 无效问题</li>
-</ul>
-<p>无效引用：</p>
+<h2 id="3-疑问"><a href="#3-疑问" class="headerlink" title="3. 疑问"></a>3. 疑问</h2><h3 id="3-1-require-socket-io-无效问题"><a href="#3-1-require-socket-io-无效问题" class="headerlink" title="3.1 require socket.io 无效问题"></a>3.1 require socket.io 无效问题</h3><p>无效引用：</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> router = express.Router();</span><br><span class="line"><span class="hljs-keyword">var</span> io = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../app'</span>).io;  <span class="hljs-comment">// api 中调用为空</span></span><br><span class="line"><span class="hljs-keyword">var</span> message = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../model/message'</span>);</span><br></pre></td></tr></table></figure>
 
 <p>有效引用</p>
