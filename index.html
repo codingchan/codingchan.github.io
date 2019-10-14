@@ -455,7 +455,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 4 words)
+                    a few seconds read (About 45 words)
                 </span>
                 
                 
@@ -468,7 +468,52 @@
             
         </h1>
         <div class="content">
-            <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2>
+            <h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><ul>
+<li><p>MongoDB version: 4.2</p>
+</li>
+<li><p>OS: Mac OS X 10.15</p>
+</li>
+<li><p>安装：</p>
+</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew tap mongodb/brew</span><br><span class="line">$ brew install mongodb-community@4.2</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-架构"><a href="#2-架构" class="headerlink" title="2. 架构"></a>2. 架构</h2><p><img src="/images/2019-10/sharded-cluster-production-architecture.bakedsvg.svg" alt="架构图"></p>
+<table>
+<thead>
+<tr>
+<th>host</th>
+<th>port</th>
+<th>role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>127.0.0.1</td>
+<td>27010</td>
+<td>shard</td>
+</tr>
+<tr>
+<td>127.0.0.1</td>
+<td>27011</td>
+<td>shard</td>
+</tr>
+<tr>
+<td>127.0.0.1</td>
+<td>27012</td>
+<td>shard</td>
+</tr>
+<tr>
+<td>127.0.0.1</td>
+<td>27020</td>
+<td>config server</td>
+</tr>
+<tr>
+<td>127.0.0.1</td>
+<td>27030</td>
+<td>router</td>
+</tr>
+</tbody></table>
+<h2 id="3-搭建"><a href="#3-搭建" class="headerlink" title="3. 搭建"></a>3. 搭建</h2>
         </div>
         
         
