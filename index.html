@@ -412,7 +412,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 35 words)
+                    a few seconds read (About 45 words)
                 </span>
                 
                 
@@ -421,11 +421,12 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/09/25/Vue-js-入门及进阶/">Vue.js 入门及进阶</a>
+                <a class="has-link-black-ter" href="/2019/09/25/Vue-js-入门及进阶/">vue / vuex 使用入门</a>
             
         </h1>
         <div class="content">
-            <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><h2 id="2-hello-world"><a href="#2-hello-world" class="headerlink" title="2. hello world"></a>2. hello world</h2><h2 id="3-基本组件及功能"><a href="#3-基本组件及功能" class="headerlink" title="3. 基本组件及功能"></a>3. 基本组件及功能</h2><h2 id="4-vuex"><a href="#4-vuex" class="headerlink" title="4. vuex"></a>4. vuex</h2><h2 id="5-数据流方向问题"><a href="#5-数据流方向问题" class="headerlink" title="5. 数据流方向问题"></a>5. 数据流方向问题</h2><h3 id="5-1-双向传输"><a href="#5-1-双向传输" class="headerlink" title="5.1 双向传输"></a>5.1 双向传输</h3><p>View &lt;==&gt; Model</p>
+            <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><h2 id="2-hello-world"><a href="#2-hello-world" class="headerlink" title="2. hello world"></a>2. hello world</h2><h2 id="3-基本组件及功能"><a href="#3-基本组件及功能" class="headerlink" title="3. 基本组件及功能"></a>3. 基本组件及功能</h2><h2 id="4-vuex"><a href="#4-vuex" class="headerlink" title="4. vuex"></a>4. vuex</h2><h3 id="4-1-原理"><a href="#4-1-原理" class="headerlink" title="4.1 原理"></a>4.1 原理</h3><p><img src="/public/images/2019-10/vuex.png" alt="状态管理"></p>
+<h2 id="5-数据流方向问题"><a href="#5-数据流方向问题" class="headerlink" title="5. 数据流方向问题"></a>5. 数据流方向问题</h2><h3 id="5-1-双向传输"><a href="#5-1-双向传输" class="headerlink" title="5.1 双向传输"></a>5.1 双向传输</h3><p>View &lt;==&gt; Model</p>
 <h3 id="5-2-单向传输"><a href="#5-2-单向传输" class="headerlink" title="5.2 单向传输"></a>5.2 单向传输</h3><p>父组件 ==&gt; 子组件</p>
 
         </div>
@@ -455,7 +456,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 45 words)
+                    a minute read (About 136 words)
                 </span>
                 
                 
@@ -513,7 +514,41 @@
 <td>router</td>
 </tr>
 </tbody></table>
-<h2 id="3-搭建"><a href="#3-搭建" class="headerlink" title="3. 搭建"></a>3. 搭建</h2>
+<h2 id="3-搭建"><a href="#3-搭建" class="headerlink" title="3. 搭建"></a>3. 搭建</h2><h3 id="3-1-config-server"><a href="#3-1-config-server" class="headerlink" title="3.1 config server"></a>3.1 config server</h3><ul>
+<li>with config file</li>
+</ul>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">sharding:</span></span><br><span class="line"><span class="hljs-attr">  clusterRole:</span> <span class="hljs-string">configsvr</span></span><br><span class="line"><span class="hljs-attr">replication:</span></span><br><span class="line"><span class="hljs-attr">  replSetName:</span> <span class="hljs-string">&lt;replica</span> <span class="hljs-string">set</span> <span class="hljs-string">name&gt;</span></span><br><span class="line"><span class="hljs-attr">net:</span></span><br><span class="line"><span class="hljs-attr">  bindIp:</span> <span class="hljs-string">localhost,&lt;hostname(s)|ip</span> <span class="hljs-string">address(es)&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongod --config &lt;path-to-config-file&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>or with command line options</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongod --configsvr --replSet &lt;replica <span class="hljs-built_in">set</span> name&gt; --dbpath &lt;path&gt; --bind_ip localhost,&lt;hostname(s)|ip address(es)&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-shard"><a href="#3-2-shard" class="headerlink" title="3.2 shard"></a>3.2 shard</h3><h4 id="3-2-1-config"><a href="#3-2-1-config" class="headerlink" title="3.2.1 config"></a>3.2.1 config</h4><ul>
+<li>with config file</li>
+</ul>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">sharding:</span></span><br><span class="line"><span class="hljs-attr">   clusterRole:</span> <span class="hljs-string">shardsvr</span></span><br><span class="line"><span class="hljs-attr">replication:</span></span><br><span class="line"><span class="hljs-attr">   replSetName:</span> <span class="hljs-string">&lt;replSetName&gt;</span></span><br><span class="line"><span class="hljs-attr">net:</span></span><br><span class="line"><span class="hljs-attr">   bindIp:</span> <span class="hljs-string">localhost,&lt;ip</span> <span class="hljs-string">address&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongod --config &lt;path-to-config-file&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>or with command line options</li>
+</ul>
+<h4 id="3-2-2-initiate"><a href="#3-2-2-initiate" class="headerlink" title="3.2.2 initiate"></a>3.2.2 initiate</h4><h3 id="3-3-mongos-router"><a href="#3-3-mongos-router" class="headerlink" title="3.3 mongos (router)"></a>3.3 mongos (router)</h3><h4 id="3-3-1-config"><a href="#3-3-1-config" class="headerlink" title="3.3.1 config"></a>3.3.1 config</h4><ul>
+<li>with config file</li>
+</ul>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">sharding:</span></span><br><span class="line"><span class="hljs-attr">  configDB:</span> <span class="hljs-string">&lt;configReplSetName&gt;/localhost:27019</span></span><br><span class="line"><span class="hljs-attr">net:</span></span><br><span class="line"><span class="hljs-attr">  bindIp:</span> <span class="hljs-string">localhost,&lt;hostname(s)|ip</span> <span class="hljs-string">address(es)&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongos --config &lt;path-to-config&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>or with command line options</li>
+</ul>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongos --configdb &lt;configReplSetName&gt;/cfg1.example.net:27019,cfg2.example.net:27019 --bind_ip localhost,&lt;hostname(s)|ip address(es)&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-2-connect"><a href="#3-3-2-connect" class="headerlink" title="3.3.2 connect"></a>3.3.2 connect</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongo --host &lt;hostname&gt; --port &lt;port&gt;</span><br></pre></td></tr></table></figure>
         </div>
         
         
