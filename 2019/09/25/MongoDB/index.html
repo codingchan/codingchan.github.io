@@ -120,7 +120,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 136 words)
+                    a minute read (About 210 words)
                 </span>
                 
                 
@@ -147,41 +147,95 @@
 <table>
 <thead>
 <tr>
+<th>hostname</th>
 <th>host</th>
 <th>port</th>
 <th>role</th>
 </tr>
 </thead>
 <tbody><tr>
+<td>s1_1.example.com</td>
 <td>127.0.0.1</td>
-<td>27010</td>
-<td>shard</td>
+<td>27030</td>
+<td>shard_1</td>
 </tr>
 <tr>
+<td>s1_2.example.com</td>
 <td>127.0.0.1</td>
-<td>27011</td>
-<td>shard</td>
+<td>27031</td>
+<td>shard_1</td>
 </tr>
 <tr>
+<td>s1_3.example.com</td>
 <td>127.0.0.1</td>
-<td>27012</td>
-<td>shard</td>
+<td>27032</td>
+<td>shard_1</td>
 </tr>
 <tr>
+<td>s2_1.example.com</td>
+<td>127.0.0.1</td>
+<td>27040</td>
+<td>shard_2</td>
+</tr>
+<tr>
+<td>s2_2.example.com</td>
+<td>127.0.0.1</td>
+<td>27041</td>
+<td>shard_2</td>
+</tr>
+<tr>
+<td>s2_3.example.com</td>
+<td>127.0.0.1</td>
+<td>27042</td>
+<td>shard_2</td>
+</tr>
+<tr>
+<td>s3_1.example.com</td>
+<td>127.0.0.1</td>
+<td>27050</td>
+<td>shard_3</td>
+</tr>
+<tr>
+<td>s3_2.example.com</td>
+<td>127.0.0.1</td>
+<td>27051</td>
+<td>shard_3</td>
+</tr>
+<tr>
+<td>s3_3.example.com</td>
+<td>127.0.0.1</td>
+<td>27052</td>
+<td>shard_3</td>
+</tr>
+<tr>
+<td>c1.example.com</td>
 <td>127.0.0.1</td>
 <td>27020</td>
 <td>config server</td>
 </tr>
 <tr>
+<td>c2.example.com</td>
 <td>127.0.0.1</td>
-<td>27030</td>
+<td>27021</td>
+<td>config server</td>
+</tr>
+<tr>
+<td>c3.example.com</td>
+<td>127.0.0.1</td>
+<td>27022</td>
+<td>config server</td>
+</tr>
+<tr>
+<td>r.example.com</td>
+<td>127.0.0.1</td>
+<td>27010</td>
 <td>router</td>
 </tr>
 </tbody></table>
 <h2 id="3-搭建"><a href="#3-搭建" class="headerlink" title="3. 搭建"></a>3. 搭建</h2><h3 id="3-1-config-server"><a href="#3-1-config-server" class="headerlink" title="3.1 config server"></a>3.1 config server</h3><ul>
 <li>with config file</li>
 </ul>
-<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">sharding:</span></span><br><span class="line"><span class="hljs-attr">  clusterRole:</span> <span class="hljs-string">configsvr</span></span><br><span class="line"><span class="hljs-attr">replication:</span></span><br><span class="line"><span class="hljs-attr">  replSetName:</span> <span class="hljs-string">&lt;replica</span> <span class="hljs-string">set</span> <span class="hljs-string">name&gt;</span></span><br><span class="line"><span class="hljs-attr">net:</span></span><br><span class="line"><span class="hljs-attr">  bindIp:</span> <span class="hljs-string">localhost,&lt;hostname(s)|ip</span> <span class="hljs-string">address(es)&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">sharding:</span></span><br><span class="line"><span class="hljs-attr">  clusterRole:</span> <span class="hljs-string">configsvr</span></span><br><span class="line"><span class="hljs-attr">replication:</span></span><br><span class="line"><span class="hljs-attr">  replSetName:</span> <span class="hljs-string">config_server</span></span><br><span class="line"><span class="hljs-attr">dbPath:</span> <span class="hljs-string">PATH_TO_DB</span></span><br><span class="line"><span class="hljs-attr">net:</span></span><br><span class="line"><span class="hljs-attr">  bindIp:</span> <span class="hljs-string">c1.example.com</span>  <span class="hljs-comment"># c2.example.com、c3.example.com</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongod --config &lt;path-to-config-file&gt;</span><br></pre></td></tr></table></figure>
 
@@ -193,7 +247,7 @@
 <h3 id="3-2-shard"><a href="#3-2-shard" class="headerlink" title="3.2 shard"></a>3.2 shard</h3><h4 id="3-2-1-config"><a href="#3-2-1-config" class="headerlink" title="3.2.1 config"></a>3.2.1 config</h4><ul>
 <li>with config file</li>
 </ul>
-<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">sharding:</span></span><br><span class="line"><span class="hljs-attr">   clusterRole:</span> <span class="hljs-string">shardsvr</span></span><br><span class="line"><span class="hljs-attr">replication:</span></span><br><span class="line"><span class="hljs-attr">   replSetName:</span> <span class="hljs-string">&lt;replSetName&gt;</span></span><br><span class="line"><span class="hljs-attr">net:</span></span><br><span class="line"><span class="hljs-attr">   bindIp:</span> <span class="hljs-string">localhost,&lt;ip</span> <span class="hljs-string">address&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">sharding:</span></span><br><span class="line"><span class="hljs-attr">   clusterRole:</span> <span class="hljs-string">shardsvr</span></span><br><span class="line"><span class="hljs-attr">replication:</span></span><br><span class="line"><span class="hljs-attr">   replSetName:</span> <span class="hljs-string">&lt;replSetName&gt;</span></span><br><span class="line"><span class="hljs-attr">storage:</span></span><br><span class="line"><span class="hljs-attr">  dbPath:</span> <span class="hljs-string">PATH_TO_DB</span></span><br><span class="line"><span class="hljs-attr">net:</span></span><br><span class="line"><span class="hljs-attr">   bindIp:</span> <span class="hljs-string">localhost,&lt;ip</span> <span class="hljs-string">address&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongod --config &lt;path-to-config-file&gt;</span><br></pre></td></tr></table></figure>
 
@@ -203,14 +257,14 @@
 <h4 id="3-2-2-initiate"><a href="#3-2-2-initiate" class="headerlink" title="3.2.2 initiate"></a>3.2.2 initiate</h4><h3 id="3-3-mongos-router"><a href="#3-3-mongos-router" class="headerlink" title="3.3 mongos (router)"></a>3.3 mongos (router)</h3><h4 id="3-3-1-config"><a href="#3-3-1-config" class="headerlink" title="3.3.1 config"></a>3.3.1 config</h4><ul>
 <li>with config file</li>
 </ul>
-<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">sharding:</span></span><br><span class="line"><span class="hljs-attr">  configDB:</span> <span class="hljs-string">&lt;configReplSetName&gt;/localhost:27019</span></span><br><span class="line"><span class="hljs-attr">net:</span></span><br><span class="line"><span class="hljs-attr">  bindIp:</span> <span class="hljs-string">localhost,&lt;hostname(s)|ip</span> <span class="hljs-string">address(es)&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">sharding:</span></span><br><span class="line"><span class="hljs-attr">  configDB:</span> <span class="hljs-string">config_server/c1.example.com:27019</span></span><br><span class="line"><span class="hljs-attr">net:</span></span><br><span class="line"><span class="hljs-attr">  bindIp:</span> <span class="hljs-string">localhost,&lt;hostname(s)|ip</span> <span class="hljs-string">address(es)&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongos --config &lt;path-to-config&gt;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>or with command line options</li>
 </ul>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongos --configdb &lt;configReplSetName&gt;/cfg1.example.net:27019,cfg2.example.net:27019 --bind_ip localhost,&lt;hostname(s)|ip address(es)&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongos --configdb &lt;configReplSetName&gt;/c1.example.com:27019,c2.example.net:27019 --bind_ip localhost,&lt;hostname(s)|ip address(es)&gt;</span><br></pre></td></tr></table></figure>
 
 <h4 id="3-3-2-connect"><a href="#3-3-2-connect" class="headerlink" title="3.3.2 connect"></a>3.3.2 connect</h4><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mongo --host &lt;hostname&gt; --port &lt;port&gt;</span><br></pre></td></tr></table></figure>
         </div>
@@ -219,7 +273,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/mongodb-nosql/">mongodb nosql</a>
+                    <a class="has-link-grey -link" href="/tags/mongodb-shard/">mongodb shard</a>
                 </div>
             </div>
         </div>
@@ -239,14 +293,14 @@
         <div class="level-start">
             <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/25/Vue-js-入门及进阶/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">vue / vuex 使用入门</span>
+                <span class="level-item">vue 入门及进阶</span>
             </a>
         </div>
         
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/24/Docker-入门/">
-                <span class="level-item">Docker 入门</span>
+                <span class="level-item">Docker 笔记</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -290,7 +344,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        15
+                        13
                     </p>
                 </div>
             </div>
@@ -347,7 +401,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/CommonJS-AMDJS-ES6/" style="font-size: 10px;">CommonJS AMDJS ES6</a> <a href="/tags/JVM基础/" style="font-size: 10px;">JVM基础</a> <a href="/tags/Java-BIO-NIO-AIO/" style="font-size: 10px;">Java BIO NIO AIO</a> <a href="/tags/SpringCloud/" style="font-size: 10px;">SpringCloud</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/github-pages-hexo/" style="font-size: 10px;">github pages hexo</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/http-tcp三次握手/" style="font-size: 10px;">http tcp三次握手</a> <a href="/tags/mongodb-nosql/" style="font-size: 10px;">mongodb nosql</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
+        <a href="/tags/CommonJS-AMDJS-ES6/" style="font-size: 10px;">CommonJS AMDJS ES6</a> <a href="/tags/JVM基础/" style="font-size: 10px;">JVM基础</a> <a href="/tags/Java-BIO-NIO-AIO/" style="font-size: 10px;">Java BIO NIO AIO</a> <a href="/tags/SpringCloud/" style="font-size: 10px;">SpringCloud</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/github-pages-hexo/" style="font-size: 10px;">github pages hexo</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/http-tcp三次握手/" style="font-size: 10px;">http tcp三次握手</a> <a href="/tags/mongodb-shard/" style="font-size: 10px;">mongodb shard</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
     </div>
 </div>
     
@@ -372,44 +426,6 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-10T14:05:26.000Z">2019-10-10</time></div>
                     <a href="/2019/10/10/build-app-with-Electon/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用 Electon 制作跨平台桌面应用</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/10/07/socket-io-usage/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="socket.io 使用小结">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-07T02:23:44.000Z">2019-10-07</time></div>
-                    <a href="/2019/10/07/socket-io-usage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">socket.io 使用小结</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/10/05/VS-Code-tips/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="VS Code tips">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-05T14:43:02.000Z">2019-10-05</time></div>
-                    <a href="/2019/10/05/VS-Code-tips/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VS Code tips</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -455,6 +471,44 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/09/25/Vue-js-入门及进阶/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue 入门及进阶">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-25T05:34:12.000Z">2019-09-25</time></div>
+                    <a href="/2019/09/25/Vue-js-入门及进阶/" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue 入门及进阶</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/25/MongoDB/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="MongoDB Shard 配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-25T05:16:28.000Z">2019-09-25</time></div>
+                    <a href="/2019/09/25/MongoDB/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MongoDB Shard 配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
         
@@ -472,7 +526,7 @@
                     <span class="level-item">October 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -558,8 +612,8 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/mongodb-nosql/">
-                        <span class="tag">mongodb nosql</span>
+                    <a class="tags has-addons" href="/tags/mongodb-shard/">
+                        <span class="tag">mongodb shard</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -621,44 +675,6 @@
         
         <article class="media">
             
-            <a href="/2019/10/07/socket-io-usage/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="socket.io 使用小结">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-07T02:23:44.000Z">2019-10-07</time></div>
-                    <a href="/2019/10/07/socket-io-usage/" class="title has-link-black-ter is-size-6 has-text-weight-normal">socket.io 使用小结</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/10/05/VS-Code-tips/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="VS Code tips">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-05T14:43:02.000Z">2019-10-05</time></div>
-                    <a href="/2019/10/05/VS-Code-tips/" class="title has-link-black-ter is-size-6 has-text-weight-normal">VS Code tips</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/2019/09/27/Go-and-Framework-Introduction/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Go 语言入门">
@@ -695,6 +711,44 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/09/25/Vue-js-入门及进阶/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue 入门及进阶">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-25T05:34:12.000Z">2019-09-25</time></div>
+                    <a href="/2019/09/25/Vue-js-入门及进阶/" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue 入门及进阶</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/25/MongoDB/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="MongoDB Shard 配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-25T05:16:28.000Z">2019-09-25</time></div>
+                    <a href="/2019/09/25/MongoDB/" class="title has-link-black-ter is-size-6 has-text-weight-normal">MongoDB Shard 配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
     
@@ -712,7 +766,7 @@
                     <span class="level-item">October 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -798,8 +852,8 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/mongodb-nosql/">
-                        <span class="tag">mongodb nosql</span>
+                    <a class="tags has-addons" href="/tags/mongodb-shard/">
+                        <span class="tag">mongodb shard</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
